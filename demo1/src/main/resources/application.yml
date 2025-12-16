@@ -1,0 +1,56 @@
+
+server:
+  port: 8888
+  servlet:
+    context-path: /
+
+spring:
+  application:
+    name: http-monitoring-demo
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus,httpexchanges,loggers,env
+      base-path: /actuator
+  endpoint:
+    health:
+      show-details: always
+      show-components: always
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
+    httpexchanges:
+      enabled: true
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+    distribution:
+      percentiles-histogram:
+        http.server.requests: true
+      percentiles:
+        http.server.requests: 0.5, 0.75, 0.95, 0.99
+    web:
+      server:
+        request:
+          autotime:
+            enabled: true
+  tracing:
+    sampling:
+      probability: 1.0
+
+logging:
+  level:
+    org.springframework.web: INFO
+    com.example.monitoringdemo: DEBUG
+
+#resilience4j:
+#  ratelimiter:
+#    instances:
+#      userServiceRateLimiter:
+#        limitForPeriod: 5          # Максимальное количество запросов в период
+#        limitRefreshPeriod: 50s      # Период обновления лимита
+#        timeoutDuration: 100ms      # Время ожидания разрешения
