@@ -1,0 +1,17 @@
+{
+  "request": {
+    "method": "GET",
+    "urlPath": "/weather/msk"
+  },
+  "response": {
+    "status": 200,
+    "jsonBody": {
+      "city": "Moscow",
+      "temp": 20,
+      "condition": "sunny"
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+# Maven
+target/
+dependency-reduced-pom.xml
+
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+
+# Java
+*.class
+
+# Maven Wrapper (если появится)
+.mvn/wrapper/maven-wrapper.jar
+
+# Optional external libs
+extlib/
+
+# Environment files
+.env
